@@ -1,0 +1,76 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+[palette]
+  bg_color = '#242424'
+  black = '#000000'
+  blue = '#0000ff'
+  cyan = '#00ffff'
+  fg_color = '#ffffff'
+  green = '#00ff00'
+  magenta = '#ff00ff'
+  orange = '#ff7b00'
+  red = '#ff0000'
+  text_color1 = '#0099ff'
+  text_color2 = '#ffffff'
+  white = '#ffffff'
+  yellow = '#ffff00'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:text_color1'
+    background = 'transparent'
+    template = '{{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+      [blocks.segments.properties.mapped_locations]
+        'C:\temp' = ''
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'powerline'
+    foreground = 'p:orange'
+    background = 'transparent'
+    template = ' ❯ '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'p:text_color1'
+    background = 'transparent'
+    template = '[{{.HostName}}]-[{{.OS}}]-[u:{{.UserName}}]'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground_templates = [
+      '{{if gt .Code 0}}p:red{{end}}',
+      '{{if eq .Code 0}}p:green{{end}}',
+    ]
+    background = 'transparent'
+    template = '❯'
+
+[transient_prompt]
+  foreground_templates = [
+    '{{if gt .Code 0}}p:red{{end}}',
+    '{{if eq .Code 0}}p:green{{end}}',
+  ]
+  background = 'transparent'
+  template = '❯ '
