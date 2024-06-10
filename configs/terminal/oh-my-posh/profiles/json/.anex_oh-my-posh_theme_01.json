@@ -15,13 +15,55 @@
         "fg_color": "#ffffff",
         "bg_color": "#242424",
         "text_color1": "#0099ff",
-        "text_color2": "#ffffff",
+        "text_color2": "#ffb055",
+        "text_color3": "#ffe2c1",
         "orange": "#ff7b00",
         "dark_green": "#00a000",
         "dark_red": "#a00000",
-        "error_color": "#e74856"
+        "error_color": "#e74856",
+        "git_ahead": "#999900",
+        "git_behind": "#a54343",
+        "frame_color1": "#2e9599",
+        "frame_color2": "#0069af"
     },
   "blocks": [
+    {
+      "type": "rprompt",
+      "overflow": "hide",
+      "segments": [
+        {
+          // display the current shell.
+          "type": "shell",
+          "style": "plain",
+          "foreground": "p:text_color1",
+          "background": "transparent",
+          "template": "<p:orange,transparent>|</>\uf489 {{ .Name }}<p:orange,transparent>|</>"
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "p:text_color2",
+          "background": "transparent",
+          "template": "<p:text_color1></> {{ .FormattedMs }}",
+          "properties": {
+            "threshold": 5000,
+            "style": "austin",
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "time",
+          "style": "diamond",
+          "invert_powerline": true,
+          "foreground": "p:text_color3",
+          "background": "p:frame_color2",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .CurrentDate | date .Format }} "
+        }
+      ]
+    },
     {
       // save output of the command "echo Hello" to the variable "Hello".
       "type": "prompt",
@@ -51,7 +93,7 @@
           "style": "powerline",
           "foreground": "p:orange",
           "background": "transparent",
-          "template": " ❯ "
+          "template": " ❯"
           //"template": "  "
         },
         {
@@ -63,6 +105,16 @@
           "template": "[{{.OS}}|{{.HostName}}]-[u:{{.UserName}}]"
         },
         {
+          // add a "❯" in between the above and below segments.
+          "type": "text",
+          "style": "powerline",
+          "foreground": "p:orange",
+          "background": "transparent",
+          "template": " ❯"
+          // "template": "  "
+        },
+        {
+          // display the git branch and status.
           "type": "git",
           "style": "plain",
           "powerline_symbol": "",
@@ -74,9 +126,10 @@
           //   "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
           //   "{{ if gt .Behind 0 }}#B388FB{{ end }}"
           // ],
-          "template": " | {{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }} * {{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}↑]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}↓]{{ end }}",
+          "template": "{{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>↑</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>↓</>]{{ end }}",
           // "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
           "properties": {
+            "commit_icon": "@",
             "fetch_status": true,
             "fetch_upstream_icon": true,
             "untracked_modes": {
@@ -113,5 +166,10 @@
           ],
         "background": "transparent",
         "template": "❯ "
+    },
+    "secondary_prompt": {
+        "background": "transparent",
+        "foreground": "p:orange",
+        "template": "❯❯ "
     }
 }
