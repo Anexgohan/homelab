@@ -94,7 +94,7 @@ New-Item -Path $PROFILE -Type File -Force
 
 Set the theme in the PowerShell profile:
 ```powershell
-oh-my-posh init pwsh --config 'E:\git\repositories\homelab\configs\terminal\oh-my-posh\.anex_oh-my-posh_theme_01.yaml' | Invoke-Expression
+oh-my-posh init pwsh --config 'E:\git\repositories\homelab\configs\terminal\oh-my-posh\profiles\json\anex.omp.json' | Invoke-Expression
 ```
 
 Refresh the profile:
@@ -104,7 +104,69 @@ Refresh the profile:
 
 change the config to suit your needs:
 
-## Done
+---
+
+# ===== Linux =====
+Links:  
+https://ohmyposh.dev/docs/installation/linux
+
+install unzip needed for install script:
+```bash
+apt install unzip -y
+```
+
+download the install script:
+```bash
+curl -s https://ohmyposh.dev/install.sh | bash -s
+```
+
+install nerd fonts and icons (FiraCode Nerd Font) or (Meslo LGM NF):
+```bash
+oh-my-posh font install
+```
+
+Refresh the profile::
+```bash
+exec bash
+```
+---
+download the local config from github:  
+
+wget
+```bash
+wget -P /root/anex/oh-my-posh/ https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json
+```
+
+curl
+```bash
+curl -L -o /root/anex/oh-my-posh/anex.omp.json https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json
+```
+---
+in .bashrc add the following line (add one of the following lines only):
+for Local Config:
+```bash  
+eval "$(oh-my-posh init bash --config /path/to/file/anex.omp.json)"
+```
+
+for Remote Config:
+```bash
+eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"
+```
+
+Refresh the profile::
+```bash
+exec bash
+```
 
 
-
+# ===== Linux All-in-One Command =====
+```bash
+mkdir -p '/root/anex/oh-my-posh/' &&
+cd '/root/anex/oh-my-posh/' &&
+apt-get install unzip -y &&
+curl -s https://ohmyposh.dev/install.sh | bash -s &&
+# oh-my-posh font install &&
+wget -N -P '/root/anex/oh-my-posh/' 'https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json' &&
+echo -e '\n\n# oh-my-posh''\neval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' | tee -a /root/.bashrc &&
+exec bash
+```

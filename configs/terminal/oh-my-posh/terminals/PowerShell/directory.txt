@@ -1,1 +1,2 @@
+# profiles:
 C:\Users\Anex\Documents\PowerShell
