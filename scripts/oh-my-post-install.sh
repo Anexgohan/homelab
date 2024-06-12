@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # ==================== oh-my-posh ==================== #
-# install with the following command:
+echo '-----'
+echo "install with the following command:"
 echo "curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash"
 echo "wget -qO- https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash"
 
@@ -9,13 +10,12 @@ echo "wget -qO- https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts
 echo '-----'
 # save directory path:
 DIR_PATH="/root/anex/oh-my-posh"
+echo "Directory path: $DIR_PATH"
 
 # ---------- Script (do not edit below if you do not know what you are doing) ---------- #
 echo '-----'
-echo " The script will install oh-my-posh in:"
-echo " $DIR_PATH"
-echo " Profile will be downloaded to:"
-echo " $DIR_PATH/profiles"
+echo "Script will install oh-my-posh: $DIR_PATH"
+echo "Profiles will be downloaded to: $DIR_PATH/profiles"
 echo '-----'
 # make directory DIR_PATH:
 mkdir -p $DIR_PATH
@@ -33,8 +33,10 @@ apt-get install -y curl wget unzip
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
 curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
 
+echo '-----'
 echo "For more information, visit: https://www.nerdfonts.com/font-downloads"
 echo "Recommended Fonts: FiraCode or Meslo LGM NF"
+echo '-----'
 # ask user to proceed y,Y,n,N:
 read -p "Do you want to proceed with the installation of the recommended fonts? (y/n): " -n 1 -r
 
