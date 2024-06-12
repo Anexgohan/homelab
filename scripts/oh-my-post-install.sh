@@ -33,34 +33,11 @@ apt-get install -y curl wget unzip
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
 curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
 
-# give yes|no choice to user, skip if no:
-echo "Do you want to install fonts? (y/n)"
-read install_fonts
-if [ "$install_fonts" = "y" ]; then
-    # present a choice of fonts to install:
-    echo "Please select a nerd font to install:"
-    echo "For more information, visit: https://www.nerdfonts.com/font-downloads"
-    echo "Recommended Fonts: FiraCode or Meslo LGM NF"
-    options=("FiraCode" "MonoFont" "Select manually")
-    select opt in "${options[@]}"
-    do
-        case $opt in
-            "FiraCode")
-                oh-my-posh font install FiraCode
-                break
-                ;;
-            "Meslo LGM NF")
-                oh-my-posh font install Meslo
-                break
-                ;;
-            "Select manually")
-                oh-my-posh font install
-                break
-                ;;
-            *) echo "invalid option $REPLY";;
-        esac
-    done
-fi
+echo "For more information, visit: https://www.nerdfonts.com/font-downloads"
+echo "Recommended Fonts: FiraCode or Meslo LGM NF"
+# ask user to proceed y,Y,n,N:
+read -p "Do you want to proceed with the installation of the recommended fonts? (y/n): " -n 1 -r
+
 # download profile "anex.omp.json" using wget to DIR_PATH/profiles:
 wget -N -P $DIR_PATH/profiles 'https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json'
 
