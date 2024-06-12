@@ -85,13 +85,16 @@ validate_install_directory() {
     fi
 
     # Check if sudo has write permission
+    # anex sudo fix on proxmox bash
+    if ! test -w "$install_dir"; then
+        error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory}"
     # if ! sudo test -w "$install_dir"; then
     #     error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory}"
         
     # Check if regular user has write permission
-    # elif [ ! -w "$install_dir" ]; then
-    #     error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory} OR use sudo"
-    # fi
+    elif [ ! -w "$install_dir" ]; then
+        error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory} OR use sudo"
+    fi
 
     # check if the directory is in the PATH
     good=$(
@@ -115,13 +118,16 @@ validate_themes_directory() {
     fi
 
     # Check if sudo has write permission
+    # anex sudo fix on proxmox bash
+    if ! test -w "$install_dir"; then
+        error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory}"
     # if ! sudo test -w "$install_dir"; then
     #     error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory}"
         
     # Check if regular user has write permission
-    # elif [ ! -w "$install_dir" ]; then
-    #     error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory} OR use sudo"
-    # fi
+    elif [ ! -w "$install_dir" ]; then
+        error "Cannot write to ${install_dir}. Please set a different directory and try again: \n  curl -s https://ohmyposh.dev/install.sh | bash -s -- -d {directory} OR use sudo"
+    fi
 
     # check if the directory is in the PATH
     good=$(

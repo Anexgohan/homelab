@@ -174,10 +174,9 @@ exec bash
 mkdir -p '/root/anex/oh-my-posh/' &&
 cd '/root/anex/oh-my-posh/' &&
 apt-get install -y curl wget unzip &&
-curl -s https://ohmyposh.dev/install.sh | bash -s &&
+curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s &&
 oh-my-posh font install &&
 wget -N -P '/root/anex/oh-my-posh/' 'https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json' &&
-echo -e '\n\n# oh-my-posh''\neval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' | tee -a /root/.bashrc &&
 if ! grep -Fxq 'eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' /root/.bashrc
 then
     echo -e '\n\n# oh-my-posh''\neval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' | tee -a /root/.bashrc
