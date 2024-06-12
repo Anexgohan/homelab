@@ -144,7 +144,7 @@ download the local config from github:
 
 wget
 ```bash
-wget -P /root/anex/oh-my-posh/ https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json
+wget -N -P /root/anex/oh-my-posh/ https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json
 ```
 
 curl
@@ -173,7 +173,7 @@ exec bash
 ```bash
 mkdir -p '/root/anex/oh-my-posh/' &&
 cd '/root/anex/oh-my-posh/' &&
-apt-get install -y curl unzip &&
+apt-get install -y curl wget unzip &&
 curl -s https://ohmyposh.dev/install.sh | bash -s &&
 oh-my-posh font install &&
 wget -N -P '/root/anex/oh-my-posh/' 'https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json' &&
