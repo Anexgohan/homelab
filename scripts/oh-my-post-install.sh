@@ -1,16 +1,22 @@
 #!/bin/bash
 
 # ==================== oh-my-posh ==================== #
+# install with the following command:
+echo "curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash"
+echo "wget -qO- https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash"
 
 # ---------- Variables (change these) ---------- #
+echo '-----'
 # save directory path:
 DIR_PATH="/root/anex/oh-my-posh"
 
 # ---------- Script (do not edit below if you do not know what you are doing) ---------- #
+echo '-----'
 echo " The script will install oh-my-posh in:"
 echo " $DIR_PATH"
 echo " Profile will be downloaded to:"
 echo " $DIR_PATH/profiles"
+echo '-----'
 # make directory DIR_PATH:
 mkdir -p $DIR_PATH
 mkdir -p $DIR_PATH/profiles
