@@ -37,16 +37,14 @@ echo '-----'
 echo "For more information, visit: https://www.nerdfonts.com/font-downloads"
 echo "Recommended Fonts: FiraCode or Meslo LGM NF"
 echo '-----'
-# ask user to proceed y,Y,n,N:
-read -p "Do you want to proceed with the installation of the recommended fonts? (y/n): " -n 1 -r
 
 # download profile "anex.omp.json" using wget to DIR_PATH/profiles:
 wget -N -P $DIR_PATH/profiles 'https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json'
 
 # edit .bashrc to include oh-my-posh initialization edit if not already present:
-if ! grep -Fxq 'eval "$(oh-my-posh init bash --config $DIR_PATH/profiles/anex.omp.json)"' /root/.bashrc
+if ! grep -Fxq "eval \"$(oh-my-posh init bash --config $DIR_PATH/profiles/anex.omp.json)\"" /root/.bashrc
 then
-    echo -e '\n\n# oh-my-posh''\neval "$(oh-my-posh init bash --config $DIR_PATH/profiles/anex.omp.json)"' | tee -a /root/.bashrc
+    echo -e "\n\n# oh-my-posh\neval \"$(oh-my-posh init bash --config $DIR_PATH/profiles/anex.omp.json)\"" | tee -a /root/.bashrc
 fi
 
 exec bash
