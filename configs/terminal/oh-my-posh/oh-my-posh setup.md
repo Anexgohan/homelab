@@ -112,7 +112,17 @@ https://ohmyposh.dev/docs/installation/linux
 
 install unzip needed for install script:
 ```bash
-apt install unzip -y
+apt-get -y install curl unzip
+```
+
+create the directory for oh-my-posh:
+```bash
+mkdir -p '/root/anex/oh-my-posh/'
+```
+
+change to the oh-my-posh directory:
+```bash
+cd '/root/anex/oh-my-posh/'
 ```
 
 download the install script:
@@ -163,11 +173,11 @@ exec bash
 ```bash
 mkdir -p '/root/anex/oh-my-posh/' &&
 cd '/root/anex/oh-my-posh/' &&
-apt-get install unzip -y &&
+apt-get install -y curl unzip &&
 curl -s https://ohmyposh.dev/install.sh | bash -s &&
-# oh-my-posh font install &&
+oh-my-posh font install &&
 wget -N -P '/root/anex/oh-my-posh/' 'https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json' &&
-# echo -e '\n\n# oh-my-posh''\neval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' | tee -a /root/.bashrc &&
+echo -e '\n\n# oh-my-posh''\neval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' | tee -a /root/.bashrc &&
 if ! grep -Fxq 'eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' /root/.bashrc
 then
     echo -e '\n\n# oh-my-posh''\neval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' | tee -a /root/.bashrc
