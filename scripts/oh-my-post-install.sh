@@ -29,11 +29,8 @@ apt-get install -y -q curl unzip
 
 # ----- initialization script ----- #
 
-# download with curl
-curl -O https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/middleware.sh
-
 # Download the script
-curl -o $DIR_PATH/scripts/middleware.sh https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/middleware.sh
+curl -o $DIR_PATH/scripts/middleware.sh https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/middleware.sh exec > >(tee) -a 2>&1
 
 # Make the script executable
 chmod +x $DIR_PATH/scripts/middleware.sh

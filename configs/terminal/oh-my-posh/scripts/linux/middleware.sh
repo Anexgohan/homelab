@@ -111,7 +111,7 @@ fi
 
 echo '-----'
 echo -e "\e[32m""oh-my-posh installation complete.""\e[0m"
-echo -e "\e[32m""Profiles will be downloaded to: $DIR_PATH/profiles""\e[0m"
+echo -e "\e[32m""Profile saved at: $DIR_PATH/profiles""\e[0m"
 # reload your profile for the changes to take effect:
 # note: no other command can run after "exec bash" in the script, keep all commands above only.
 exec bash
