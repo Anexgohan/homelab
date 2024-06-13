@@ -21,6 +21,7 @@ echo -e "2.""\e[36m" "wget -qO- https://raw.githubusercontent.com/Anexgohan/home
 # # make directory DIR_PATH:
 # mkdir -p $DIR_PATH
 # mkdir -p $DIR_PATH/profiles
+# mkdir -p $DIR_PATH/scripts
 # # check if directory was created and has write permissions:
 # if [ ! -d "$DIR_PATH" ] || [ ! -w "$DIR_PATH" ]; then
 #     echo "Directory $DIR_PATH does not exist or does not have write permissions."
@@ -33,13 +34,14 @@ echo -e "2.""\e[36m" "wget -qO- https://raw.githubusercontent.com/Anexgohan/home
 
 # download oh-my-posh anex custom script:
 curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh -o $DIR_PATH/scripts/install.sh
-chmod +x $DIR_PATH/scripts/install.sh
+# chmod +x $DIR_PATH/scripts/install.sh
 # bash $DIR_PATH/scripts/install.sh
 # sourcing the script instead of calling it in a subshell. 
 # This will run the script in the current shell instead of a new one, which should allow it to accept user input.
 # source $DIR_PATH/scripts/install.sh
 # or 
-. $DIR_PATH/scripts/install.sh
+# . $DIR_PATH/scripts/install.sh
+bash $DIR_PATH/scripts/install.sh
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
 
