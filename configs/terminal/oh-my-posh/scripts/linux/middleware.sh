@@ -41,7 +41,7 @@ curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/termina
 # source $DIR_PATH/scripts/install.sh
 # or 
 # . $DIR_PATH/scripts/install.sh
-bash $DIR_PATH/scripts/install.sh
+bash -i $DIR_PATH/scripts/install.sh
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
 
