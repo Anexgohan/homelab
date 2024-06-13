@@ -40,4 +40,4 @@ echo '-----'
 echo "Running middleware script..."
 #source $DIR_PATH/scripts/middleware.sh
 # or
-. $DIR_PATH/scripts/middleware.sh </dev/tty
+. $DIR_PATH/scripts/middleware.sh < /dev/tty
