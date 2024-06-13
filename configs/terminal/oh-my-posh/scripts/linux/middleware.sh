@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exec < "/dev/$(ps -p $PPID -o tty=)"
+exec < /dev/tty
 # ==================== oh-my-posh ==================== #
 echo 
 echo '-----'
