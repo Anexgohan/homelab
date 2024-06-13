@@ -32,14 +32,14 @@ echo -e "2.""\e[36m" "wget -qO- https://raw.githubusercontent.com/Anexgohan/home
 # apt-get install -y -q curl unzip
 
 # download oh-my-posh anex custom script:
-curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh -o $DIR_PATH/scripts/install.sh
-chmod +x $DIR_PATH/scripts/install.sh
+curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh -o $DIR_PATH/scripts/install2.sh
+chmod +x $DIR_PATH/scripts/install2.sh
 # bash $DIR_PATH/scripts/install.sh
 # sourcing the script instead of calling it in a subshell. 
 # This will run the script in the current shell instead of a new one, which should allow it to accept user input.
-source $DIR_PATH/scripts/install.sh
+# source $DIR_PATH/scripts/install.sh
 # or 
-# . $DIR_PATH/scripts/install.sh
+. $DIR_PATH/scripts/install2.sh
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
 

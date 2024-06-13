@@ -30,13 +30,14 @@ apt-get install -y -q curl unzip
 # ----- initialization script ----- #
 
 # Download the script
-curl -o $DIR_PATH/scripts/middleware.sh https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/middleware.sh exec > >(tee) -a 2>&1
+curl -o $DIR_PATH/scripts/middleware2.sh https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/middleware.sh
 
 # Make the script executable
-chmod +x $DIR_PATH/scripts/middleware.sh
+chmod +x $DIR_PATH/scripts/middleware2.sh
 
 # Run the script
+echo '-----'
+echo "Running middleware script..."
 #source $DIR_PATH/scripts/middleware.sh
 # or
-. $DIR_PATH/scripts/middleware.sh
-
+. $DIR_PATH/scripts/middleware2.sh
