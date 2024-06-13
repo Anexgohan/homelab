@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-tty -s && echo -e "\e[32m""This shell is interactive 3""\e[0m" || echo -e "\e[32m""This shell is not interactive""\e[0m"
+tty -s && echo -e "\e[32m""This shell is interactive3""\e[0m" || echo -e "\e[32m""This shell is not interactive""\e[0m"
 install_dir=""
 themes_dir=""
 executable=""
