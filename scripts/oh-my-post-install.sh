@@ -54,7 +54,7 @@ if [ "$install_fonts" = "y" ] || [ "$install_fonts" = "yes" ]; then
     # present a choice of fonts to install:
     echo "Please select a font to install:"
     echo # Recommended: FiraCode or Meslo LGM NF
-    options=("FiraCode" "MonoFont" "Select manually")
+    options=( "FiraCode" "Meslo LGM NF" "Inconsolata" "JetBrainsMono" "RobotoMono" "Ubuntu" "UbuntuMono" "More..")
     select opt in "${options[@]}"
     do
         case $opt in
@@ -62,11 +62,31 @@ if [ "$install_fonts" = "y" ] || [ "$install_fonts" = "yes" ]; then
                 oh-my-posh font install FiraCode
                 break
                 ;;
-            "MonoFont")
+            "Meslo LGM NF")
                 oh-my-posh font install Meslo
                 break
                 ;;
-            "Select manually")
+            "Inconsolata")
+                oh-my-posh font install Inconsolata
+                break
+                ;;
+            "JetBrainsMono")
+                oh-my-posh font install JetBrainsMono
+                break
+                ;;
+            "RobotoMono")
+                oh-my-posh font install RobotoMono
+                break
+                ;;
+            "Ubuntu")
+                oh-my-posh font install Ubuntu
+                break
+                ;;
+            "UbuntuMono")
+                oh-my-posh font install UbuntuMono
+                break
+                ;;
+            "More..")
                 oh-my-posh font install
                 break
                 ;;
