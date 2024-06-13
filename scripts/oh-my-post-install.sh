@@ -38,8 +38,6 @@ chmod +x $DIR_PATH/scripts/middleware.sh
 # Run the script
 echo '-----'
 echo "Running middleware script..."
-#source $DIR_PATH/scripts/middleware.sh
-# or
 # . $DIR_PATH/scripts/middleware.sh < /dev/tty
 # To use it for a parent process e.g., substitute $$ with $PPID.
 . $DIR_PATH/scripts/middleware.sh < "/dev/$(ps -p $PPID -o tty=)"
