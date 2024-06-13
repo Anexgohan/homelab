@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ==================== oh-my-posh ==================== #
-tty -s && echo "This shell is interactive" || echo "This shell is not interactive"
+
 # ---------- Variables (change these) ---------- #
 echo -e '-----'
 # save directory path:

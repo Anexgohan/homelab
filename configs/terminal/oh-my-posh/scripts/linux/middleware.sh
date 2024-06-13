@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-tty -s && echo -e "\e[32m""This shell is interactive2""\e[0m" || echo -e "\e[32m""This shell is not interactive""\e[0m"
+
 # ==================== oh-my-posh ==================== #
 echo 
 echo '-----'
