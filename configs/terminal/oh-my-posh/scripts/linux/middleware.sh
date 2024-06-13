@@ -1,49 +1,11 @@
 #!/usr/bin/env bash
-exec < /dev/tty
+
 # ==================== oh-my-posh ==================== #
-echo 
-echo '-----'
-echo "install with the following command:"
-echo -e "1.""\e[36m" "curl https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash" "\e[0m"
-echo -e "2.""\e[36m" "wget -qO- https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash" "\e[0m"
-
-# ---------- Variables (change these) ---------- #
-echo -e '-----'
-# save directory path:
-DIR_PATH="/root/anex/oh-my-posh"
-echo -e "\e[32m""Directory path: $DIR_PATH""\e[0m"
-
-# ---------- Script (do not edit below if you do not know what you are doing) ---------- #
-echo '-----'
-echo -e "\e[32m""Script will install oh-my-posh: $DIR_PATH""\e[0m"
-echo -e "\e[32m""Profiles will be downloaded to: $DIR_PATH/profiles""\e[0m"
-echo '-----'
-# make directory DIR_PATH:
-mkdir -p $DIR_PATH
-mkdir -p $DIR_PATH/profiles
-mkdir -p $DIR_PATH/scripts
-# check if directory was created and has write permissions:
-if [ ! -d "$DIR_PATH" ] || [ ! -w "$DIR_PATH" ]; then
-    echo "Directory $DIR_PATH does not exist or does not have write permissions."
-    exit 1
-fi
-# change directory:
-cd $DIR_PATH
-# install dependencies:
-apt-get install -y -q curl unzip
 
 # download oh-my-posh anex custom script:
 curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh -o $DIR_PATH/scripts/install.sh
 # chmod +x $DIR_PATH/scripts/install.sh
-# bash $DIR_PATH/scripts/install.sh
-# sourcing the script instead of calling it in a subshell. 
-# This will run the script in the current shell instead of a new one, which should allow it to accept user input.
-# source $DIR_PATH/scripts/install.sh
-# or 
 . $DIR_PATH/scripts/install.sh
-
-# curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
-# curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
 
 echo '-----'
 echo -e "For more information, visit:" "\e[36m"https://www.nerdfonts.com/font-downloads"\e[0m"

@@ -2,6 +2,12 @@
 
 # ==================== oh-my-posh ==================== #
 
+echo 
+echo '-----'
+echo "install with the following command:"
+echo -e "1.""\e[36m" "curl https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash" "\e[0m"
+echo -e "2.""\e[36m" "wget -qO- https://raw.githubusercontent.com/Anexgohan/homelab/main/scripts/oh-my-post-install.sh | bash" "\e[0m"
+
 # ---------- Variables (change these) ---------- #
 echo -e '-----'
 # save directory path:
