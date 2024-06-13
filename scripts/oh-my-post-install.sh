@@ -39,7 +39,7 @@ curl -o $DIR_PATH/scripts/middleware.sh https://raw.githubusercontent.com/Anexgo
 chmod +x $DIR_PATH/scripts/middleware.sh
 
 # Run the script
-source $DIR_PATH/scripts/middleware.sh
+#source $DIR_PATH/scripts/middleware.sh
 # or
-# . $DIR_PATH/scripts/middleware.sh
+. $DIR_PATH/scripts/middleware.sh
 
