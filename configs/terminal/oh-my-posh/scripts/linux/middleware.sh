@@ -51,14 +51,14 @@ echo -e "Recommended Fonts:" "\e[32m""FiraCode or Meslo LGM NF""\e[0m"
 echo '-----'
 
 echo -e "\e[32m""Do you want to install fonts? (y/n)""\e[0m"
-read install_fonts
+read install_fonts </dev/tty
 install_fonts=$(echo $install_fonts | tr '[:upper:]' '[:lower:]')
 if [ "$install_fonts" = "y" ] || [ "$install_fonts" = "yes" ]; then
     # present a choice of fonts to install:
     echo "Please select a font to install:"
     echo # Recommended: FiraCode or Meslo LGM NF
     options=( "FiraCode" "Meslo LGM NF" "Inconsolata" "JetBrainsMono" "RobotoMono" "Ubuntu" "UbuntuMono" "More..")
-    select opt in "${options[@]}"
+    select opt in "${options[@]}" </dev/tty
     do
         case $opt in
             "FiraCode")
