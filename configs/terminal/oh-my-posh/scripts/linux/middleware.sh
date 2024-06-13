@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+exec < "/dev/$(ps -p $PPID -o tty=)"
 # ==================== oh-my-posh ==================== #
 echo 
 echo '-----'
@@ -40,7 +40,7 @@ curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/termina
 # This will run the script in the current shell instead of a new one, which should allow it to accept user input.
 # source $DIR_PATH/scripts/install.sh
 # or 
-. $DIR_PATH/scripts/install.sh < "/dev/$(ps -p $PPID -o tty=)"
+. $DIR_PATH/scripts/install.sh
 
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
