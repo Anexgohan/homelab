@@ -32,7 +32,13 @@ cd $DIR_PATH
 apt-get install -y -q curl unzip
 # download oh-my-posh anex custom script:
 curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh -o $DIR_PATH/install.sh
-sh $DIR_PATH/install.sh
+chmod +x $DIR_PATH/install.sh
+# bash $DIR_PATH/install.sh
+# sourcing the script instead of calling it in a subshell. 
+# This will run the script in the current shell instead of a new one, which should allow it to accept user input.
+source $DIR_PATH/install.sh
+# or 
+# . $DIR_PATH/install.sh
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s
 # curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s -- -d $DIR_PATH
 
