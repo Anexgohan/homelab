@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
 # ==================== oh-my-posh ==================== #
-cat << EOF </dev/tty
-# Your script goes here
-EOF
-
 echo 
 echo '-----'
 echo "install with the following command:"
