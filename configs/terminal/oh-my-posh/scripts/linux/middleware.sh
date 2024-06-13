@@ -58,7 +58,7 @@ if [ "$install_fonts" = "y" ] || [ "$install_fonts" = "yes" ]; then
     echo "Please select a font to install:"
     echo # Recommended: FiraCode or Meslo LGM NF
     options=( "FiraCode" "Meslo LGM NF" "Inconsolata" "JetBrainsMono" "RobotoMono" "Ubuntu" "UbuntuMono" "More..")
-    select opt in "${options[@]}" </dev/tty
+    select opt in "${options[@]}"
     do
         case $opt in
             "FiraCode")
