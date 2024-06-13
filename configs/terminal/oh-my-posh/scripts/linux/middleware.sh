@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 # ==================== oh-my-posh ==================== #
+cat << EOF </dev/tty
+# Your script goes here
+EOF
+
 echo 
 echo '-----'
 echo "install with the following command:"
@@ -51,7 +55,7 @@ echo -e "Recommended Fonts:" "\e[32m""FiraCode or Meslo LGM NF""\e[0m"
 echo '-----'
 
 echo -e "\e[32m""Do you want to install fonts? (y/n)""\e[0m"
-read install_fonts </dev/tty
+read install_fonts
 install_fonts=$(echo $install_fonts | tr '[:upper:]' '[:lower:]')
 if [ "$install_fonts" = "y" ] || [ "$install_fonts" = "yes" ]; then
     # present a choice of fonts to install:
