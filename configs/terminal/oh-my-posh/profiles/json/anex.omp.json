@@ -44,10 +44,10 @@
           // display the execution time of the last command.
           "type": "executiontime",
           "style": "powerline",
-          "powerline_symbol": "",
+          "powerline_symbol": "\ue0b0", //""
           "foreground": "p:text_color2",
           "background": "transparent",
-          "template": "<p:text_color1></> {{ .FormattedMs }}",
+          "template": "<p:text_color1>\uf520</> {{ .FormattedMs }}", //""
           "properties": {
             "threshold": 5000,
             "style": "austin",
