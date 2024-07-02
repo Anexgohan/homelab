@@ -108,7 +108,7 @@ install nerd fonts and icons `(FiraCode Nerd Font)` or `(Meslo LGM NF)`:
 ```bash
 oh-my-posh font install
 ```
-### *Terminal settings:*
+## ----- *Terminal settings:* ----- 
 
 In terminal: 
 >settings>appearance  
@@ -146,6 +146,33 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
         }
 }
 ```
+
+### *Get Predictions / Tab Completion in powershell:*
+```powershell
+Install-Module -Name PSReadLine -force
+```  
+print PSReadLineOption (to see the options):
+```powershell
+Get-PSReadLineOption
+```
+print PSReadLineKeyHandler (to see the keybindings):
+```powershell
+Get-PSReadLineKeyHandler
+```
+Open the profile in vscode:
+```powershell
+code $PROFILE
+```
+Add the following line to the profile:
+>Options are: None, History, Plugin, HistoryAndPlugin
+```powershell
+Set-PSReadLineOption -PredictionSource History
+```  
+>Options are: ListView, InlineView
+```powershell
+Set-PSReadLineOption -PredictionViewStyle ListView
+```
+
 
 ---
 
