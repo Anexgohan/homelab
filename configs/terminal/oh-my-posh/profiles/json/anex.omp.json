@@ -36,18 +36,18 @@
           // display the current shell.
           "type": "shell",
           "style": "plain",
-          "foreground": "p:text_color1",
+          "foreground": "p:text_color2",
           "background": "transparent",
-          "template": "<p:orange,transparent>|</>\uf489 {{ .Name }}<p:orange,transparent>|</>"
+          "template": "<p:orange,transparent>|</><p:text_color1> </>{{ .Name }}<p:orange,transparent>|</>" //     \uf489
         },
         {
           // display the execution time of the last command.
           "type": "executiontime",
           "style": "powerline",
-          "powerline_symbol": "\ue0b0", //""
+          "powerline_symbol": "", //    \ue0b0
           "foreground": "p:text_color2",
           "background": "transparent",
-          "template": "<p:text_color1>\uf520</> {{ .FormattedMs }}", //""
+          "template": "<p:text_color1></> {{ .FormattedMs }}", //     \uf520
           "properties": {
             "threshold": 5000,
             "style": "austin",
@@ -82,7 +82,7 @@
           "foreground": "p:text_color1",
           "background": "transparent",
           //"background": "p:bg_color",
-          "template": "{{ .Path }}",
+          "template": "{{ .Location }}",  //  "{{ .Path }}"
           "properties": {
             "style": "full"
             // "mapped_locations": {
@@ -129,7 +129,7 @@
           //   "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
           //   "{{ if gt .Behind 0 }}#B388FB{{ end }}"
           // ],
-          "template": "{{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>↑</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>↓</>]{{ end }}",
+          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>↑</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>↓</>]{{ end }}",
           // "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
           "properties": {
             "commit_icon": "@",

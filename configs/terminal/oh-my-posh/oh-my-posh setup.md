@@ -104,6 +104,16 @@ Refresh the profile:
 
 change the config to suit your needs:
 
+install nerd fonts and icons `(FiraCode Nerd Font)` or `(Meslo LGM NF)`:
+```bash
+oh-my-posh font install
+```
+
+In terminal goto settings>profiles>defaults>appearance and change fonts to  
+`(FiraCode Nerd Font)`  
+or  
+`(Meslo LGM NF)`
+
 ---
 
 # ===== Linux =====
