@@ -96,7 +96,7 @@
           "style": "powerline",
           "foreground": "p:orange",
           "background": "transparent",
-          "template": " ❯"
+          "template": " ❯ "
           //"template": "  "
         },
         {

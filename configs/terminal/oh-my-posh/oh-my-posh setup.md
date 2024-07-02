@@ -108,11 +108,44 @@ install nerd fonts and icons `(FiraCode Nerd Font)` or `(Meslo LGM NF)`:
 ```bash
 oh-my-posh font install
 ```
+### *Terminal settings:*
 
-In terminal goto settings>profiles>defaults>appearance and change fonts to  
+In terminal: 
+>settings>appearance  
+`Use acrylic Material in tab row` to `enabled`
+
+In terminal change fonts to:
+>settings>profiles>defaults>appearance  
 `(FiraCode Nerd Font)`  
 or  
 `(Meslo LGM NF)`
+
+### *For Powershell 7.4:*  (Recomended)  
+
+Autocomplete is already enabled in Powershell 7.4
+```bash
+winget install Microsoft.PowerShell
+```
+
+### *For Windows Powershell:*
+which is pre-installed with windows  
+[Tab Completion](https://learn.microsoft.com/en-us/windows/package-manager/winget/tab-completion)
+
+```powershell
+code $PROFILE
+```
+add the following line to the profile:
+```
+Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+        [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
+        $Local:word = $wordToComplete.Replace('"', '""')
+        $Local:ast = $commandAst.ToString().Replace('"', '""')
+        winget complete --word="$Local:word" --commandline "$Local:ast" --position $cursorPosition | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
+}
+```
 
 ---
 
