@@ -240,11 +240,13 @@ exec bash
 
 
 # ===== Linux All-in-One Command =====
+
+### oh-my-posh install.sh
 ```bash
 mkdir -p '/root/anex/oh-my-posh/' &&
 cd '/root/anex/oh-my-posh/' &&
 apt-get install -y curl wget unzip &&
-curl -s https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/scripts/linux/install.sh | bash -s &&
+curl -s https://ohmyposh.dev/install.sh | bash -s &&
 oh-my-posh font install &&
 wget -N -P '/root/anex/oh-my-posh/' 'https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json' &&
 if ! grep -Fxq 'eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' /root/.bashrc

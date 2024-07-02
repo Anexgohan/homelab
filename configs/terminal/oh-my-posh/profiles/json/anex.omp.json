@@ -170,6 +170,7 @@
         "background": "transparent",
         "template": "❯ "
     },
+  // The secondary prompt is displayed when a command text spans multiple lines.
     "secondary_prompt": {
         "background": "transparent",
         "foreground": "p:orange",
