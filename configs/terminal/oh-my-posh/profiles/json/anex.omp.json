@@ -107,7 +107,7 @@
           "style": "plain",
           "foreground": "p:text_color1",
           "background": "transparent",
-          "template": "{{.OS}}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}"
+          "template": "🖧 {{ .IP }}<p:orange,transparent>|</>{{.OS}}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}"
         },
         {
           // add a "❯" in between the above and below segments.
