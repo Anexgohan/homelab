@@ -125,7 +125,7 @@
           "powerline_symbol": "",
           "foreground": "#ffffff",
           "background": "#8f43f3",
-          "template": "  {{ round .PhysicalPercentUsed .Precision }}% = {{.Disks.disk0.IoTime}} = {{.PhysicalTotalMemory}}",
+          "template": "  {{ round .PhysicalPercentUsed .Precision }}% = {{.Disks.disk0.IoTime}} = {{round .PhysicalTotalMemory .Precision}}",
           "properties": {
             "precision": 2
           },
