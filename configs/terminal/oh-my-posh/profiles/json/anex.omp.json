@@ -28,6 +28,7 @@
         "frame_color2": "#0069af"
     },
   "blocks": [
+    // right prompt | pwsh| 0ms 09:50:03 
     {
       "type": "rprompt",
       "overflow": "hide",
@@ -67,8 +68,8 @@
         }
       ]
     },
+    // main prompt left  /root/thing ❯ debian|temp-lxc-docker|u:root ❯
     {
-      // save output of the command "echo Hello" to the variable "Hello".
       "type": "prompt",
       "alignment": "left",
       "newline": true,
@@ -82,7 +83,8 @@
           "foreground": "p:text_color1",
           "background": "transparent",
           //"background": "p:bg_color",
-          "template": "<p:text_color2> {{ .Location }}</>",
+          "template": "<p:text_color2>\uf07c {{ .AbsolutePWD }}</>",
+          // "template": "<p:text_color2> {{ .Location }}</>",
           // "template": "<p:text_color2> {{ .Path }}</>",
           // "template": "<p:text_color2> {{ .Folder }}</>",
           "properties": {
@@ -145,6 +147,7 @@
         }
       ]
     },
+    // user input prompt ❯ 
     {
       // This block is used for user input prompt.
       "type": "prompt",
