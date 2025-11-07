@@ -1,0 +1,171 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "bg_color": "#242424",
+    "black": "#000000",
+    "blue": "#0000ff",
+    "cyan": "#00ffff",
+    "dark_green": "#00a000",
+    "dark_red": "#a00000",
+    "error_color": "#e74856",
+    "fg_color": "#ffffff",
+    "frame_color1": "#2e9599",
+    "frame_color2": "#0069af",
+    "git_ahead": "#999900",
+    "git_behind": "#a54343",
+    "green": "#00ff00",
+    "magenta": "#ff00ff",
+    "orange": "#ff7b00",
+    "red": "#ff0000",
+    "text_color1": "#0099ff",
+    "text_color2": "#ffb055",
+    "text_color3": "#ffe2c1",
+    "white": "#ffffff",
+    "yellow": "#ffff00"
+  },
+  "secondary_prompt": {
+    "template": "❯❯ ",
+    "foreground": "p:orange",
+    "background": "transparent"
+  },
+  "transient_prompt": {
+    "template": "❯ ",
+    "background": "transparent",
+    "foreground_templates": [
+      "{{if gt .Code 0}}p:error_color{{end}}",
+      "{{if eq .Code 0}}p:dark_green{{end}}"
+    ]
+  },
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "blocks": [
+    {
+      "type": "rprompt",
+      "overflow": "hide",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "<p:orange,transparent>|</><p:text_color1>\uf489 </>{{ .Name }}<p:orange,transparent>|</>",
+          "foreground": "p:text_color2",
+          "background": "transparent",
+          "type": "shell",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none",
+            "style": "austin",
+            "threshold": 5000
+          },
+          "template": "<p:text_color1>\uf520</> {{ .FormattedMs }}",
+          "foreground": "p:text_color2",
+          "powerline_symbol": "\ue0b0",
+          "background": "transparent",
+          "type": "executiontime",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "foreground": "p:text_color3",
+          "background": "p:frame_color2",
+          "type": "time",
+          "style": "diamond",
+          "invert_powerline": true
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "style": "full"
+          },
+          "template": "<p:text_color2>{{ .Location }}</>",
+          "foreground": "p:text_color1",
+          "background": "transparent",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " ❯ ",
+          "foreground": "p:orange",
+          "background": "transparent",
+          "type": "text",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{.OS}}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}",
+          "foreground": "p:text_color1",
+          "background": "transparent",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " ❯",
+          "foreground": "p:orange",
+          "background": "transparent",
+          "type": "text",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "commit_icon": "@",
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "untracked_modes": {
+              "/Users/user/Projects/oh-my-posh/": "no"
+            }
+          },
+          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>\u2191</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>\u2193</>]{{ end }}",
+          "foreground": "p:text_color1",
+          "powerline_symbol": "\ue0b0",
+          "type": "git",
+          "style": "plain"
+        }
+      ],
+      "newline": true
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "❯",
+          "background": "transparent",
+          "type": "text",
+          "style": "plain",
+          "foreground_templates": [
+            "{{if gt .Code 0}}p:error_color{{end}}",
+            "{{if eq .Code 0}}p:dark_green{{end}}"
+          ]
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
