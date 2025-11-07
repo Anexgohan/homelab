@@ -121,6 +121,17 @@
           // "template": "  "
         },
         {
+          "type": "sysinfo",
+          "powerline_symbol": "",
+          "foreground": "#ffffff",
+          "background": "#8f43f3",
+          "template": "  {{ round .PhysicalPercentUsed .Precision }}% = {{.Disks.disk0.IoTime}} = {{.PhysicalTotalMemory}}",
+          "properties": {
+            "precision": 2
+          },
+          "style": "powerline"
+        },
+        {
           // display the git branch and status.
           "type": "git",
           "style": "plain",
