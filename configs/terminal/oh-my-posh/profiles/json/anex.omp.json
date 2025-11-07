@@ -82,7 +82,9 @@
           "foreground": "p:text_color1",
           "background": "transparent",
           //"background": "p:bg_color",
-          "template": "<p:text_color2>{{ .Location }}</>",  //  "{{ .Path }}"
+          // "template": "<p:text_color2> {{ .Location }}</>",
+          "template": "<p:text_color2> {{ .Path }}</>",
+          // "template": "<p:text_color2> {{ .Folder }}</>",
           "properties": {
             "style": "full"
             // "mapped_locations": {
