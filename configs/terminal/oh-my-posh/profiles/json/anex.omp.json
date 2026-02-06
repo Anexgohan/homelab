@@ -155,7 +155,7 @@
           "background": "p:frame_color2",
           "leading_diamond": "",
           "trailing_diamond": "\ue0b4",
-          "template": " \uf017 {{ .CurrentDate | date .Format }} ",
+          "template": " \uf43a {{ .CurrentDate | date .Format }} ",
           "properties": {
             "time_format": "03:04:05 pm"
           }
