@@ -138,7 +138,7 @@
           "powerline_symbol": "\ue0b0",
           "template": " \uf073 {{ .CurrentDate | date .Format }} ",
           "foreground": "p:text_color3",
-          "background": "#143963",
+          "background": "#1C508B",
           "type": "time",
           "style": "powerline"
         },
@@ -149,7 +149,7 @@
           },
           "template": "<#4a6a9a>\ue0b1</> \udb80\udc20 {{ .CurrentDate | date .Format }} ",
           "foreground": "p:text_color3",
-          "background": "#143963",
+          "background": "#1C508B",
           "trailing_diamond": "\ue0d1",
           "type": "time",
           "style": "diamond"
