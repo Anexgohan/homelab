@@ -1,99 +1,89 @@
 {
-  // upload this to github and use the raw link in the oh-my-posh config.
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": 2,
-  "final_space": true,
-  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "palette": {
-        "red":   "#ff0000",
-        "green": "#00ff00",
-        "blue":  "#0000ff",
-        "cyan": "#00ffff",
-        "yellow": "#ffff00",
-        "magenta": "#ff00ff",
-        "black": "#000000",
-        "white": "#ffffff",
-        "fg_color": "#ffffff",
-        "bg_color": "#242424",
-        "text_color1": "#0099ff",
-        "text_color2": "#ffb055",
-        "text_color3": "#ffe2c1",
-        "orange": "#ff7b00",
-        "dark_green": "#00a000",
-        "dark_red": "#a00000",
-        "error_color": "#e74856",
-        "git_ahead": "#999900",
-        "git_behind": "#a54343",
-        "frame_color1": "#2e9599",
-        "frame_color2": "#0069af"
-    },
+    "bg_color": "#242424",
+    "black": "#000000",
+    "blue": "#0000ff",
+    "cyan": "#00ffff",
+    "dark_green": "#00a000",
+    "dark_red": "#a00000",
+    "error_color": "#e74856",
+    "fg_color": "#ffffff",
+    "frame_color1": "#2e9599",
+    "frame_color2": "#0069af",
+    "git_ahead": "#999900",
+    "git_behind": "#a54343",
+    "green": "#00ff00",
+    "magenta": "#ff00ff",
+    "orange": "#ff7b00",
+    "red": "#ff0000",
+    "text_color1": "#0099ff",
+    "text_color2": "#ffb055",
+    "text_color3": "#ffe2c1",
+    "white": "#ffffff",
+    "yellow": "#ffff00"
+  },
+  "secondary_prompt": {
+    "template": "❯❯ ",
+    "foreground": "p:orange",
+    "background": "transparent"
+  },
+  "transient_prompt": {
+    "template": "❯ ",
+    "background": "transparent",
+    "foreground_templates": [
+      "{{if gt .Code 0}}p:error_color{{end}}",
+      "{{if eq .Code 0}}p:dark_green{{end}}"
+    ]
+  },
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "blocks": [
-    // main prompt left   /root/thing ❯ debian|temp-lxc-docker|u:root ❯
     {
       "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          // display the full path of the current directory.
-          "type": "path",
-          // "style": "powerline",
-          // "powerline_symbol": "",
-          "style": "plain",
-          "foreground": "p:text_color1",
-          "background": "transparent",
-          //"background": "p:bg_color",
-          "template": "<p:text_color2>\uf07c {{ .AbsolutePWD }}</>",
-          // "template": "<p:text_color2> {{ .Location }}</>",
-          // "template": "<p:text_color2> {{ .Path }}</>",
-          // "template": "<p:text_color2> {{ .Folder }}</>",
           "properties": {
+            "cache_duration": "none",
             "style": "full"
-            // "mapped_locations": {
-            //   "E:\\git\\repositories\\homelab": ""
-            // }
-          }
-        },
-        {
-          // add a "❯" in between the above and below segments.
-          "type": "text",
-          "style": "powerline",
-          "foreground": "p:orange",
-          "background": "transparent",
-          "template": " ❯ "
-          //"template": "  "
-        },
-        {
-          // display the hostname, OS, shell, and username.
-          "type": "text",
-          "style": "plain",
+          },
+          "template": "<p:text_color2>\uf07c {{ .AbsolutePWD }}</>",
           "foreground": "p:text_color1",
           "background": "transparent",
-          "template": "{{.OS}}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}"
+          "type": "path",
+          "style": "plain"
         },
         {
-          // add a "❯" in between the above and below segments.
-          "type": "text",
-          "style": "powerline",
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " ❯ ",
           "foreground": "p:orange",
           "background": "transparent",
-          "template": " ❯"
-          // "template": "  "
+          "type": "text",
+          "style": "powerline"
         },
         {
-          // display the git branch and status.
-          "type": "git",
-          "style": "plain",
-          "powerline_symbol": "",
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{.OS}}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}",
           "foreground": "p:text_color1",
-          // "background": "transparent",
-          // "background_templates": [
-          //   "{{ if or (.Working.Changed) (.Staging.Changed) }}#FFEB3B{{ end }}",
-          //   "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}",
-          //   "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
-          //   "{{ if gt .Behind 0 }}#B388FB{{ end }}"
-          // ],
-          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>↑</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>↓</>]{{ end }}",
-          // "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
+          "background": "transparent",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " ❯",
+          "foreground": "p:orange",
+          "background": "transparent",
+          "type": "text",
+          "style": "powerline"
+        },
+        {
           "properties": {
             "cache_duration": "none",
             "commit_icon": "@",
@@ -102,99 +92,91 @@
             "untracked_modes": {
               "/Users/user/Projects/oh-my-posh/": "no"
             }
-          }
+          },
+          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>\u2191</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>\u2193</>]{{ end }}",
+          "foreground": "p:text_color1",
+          "powerline_symbol": "\ue0b0",
+          "type": "git",
+          "style": "plain"
         }
       ]
     },
-    // right prompt on header line | pwsh| 0ms 09:50:03
     {
       "type": "prompt",
       "alignment": "right",
       "overflow": "hide",
       "segments": [
         {
-          // display the current shell.
-          "type": "shell",
-          "style": "plain",
-          "foreground": "p:text_color2",
-          "background": "transparent",
-          "template": "<p:orange,transparent>|</><p:text_color1> </>{{ .Name }}<p:orange,transparent>|</>" //     \uf489
-        },
-        {
-          // display the execution time of the last command.
-          "type": "executiontime",
-          "style": "powerline",
-          "powerline_symbol": "", //    \ue0b0
-          "foreground": "p:text_color2",
-          "background": "transparent",
-          "template": "<p:text_color1></> {{ .FormattedMs }}", //     \uf520
           "properties": {
-            "threshold": 5000,
-            "style": "austin",
-            "always_enabled": true
-          }
-        },
-        {
-          // display the current date.
-          "type": "time",
-          "style": "diamond",
-          "foreground": "p:text_color3",
-          "background": "p:frame_color1",
+            "cache_duration": "none"
+          },
           "leading_diamond": "\ue0b6",
-          "trailing_diamond": "\ue0b0",
-          "template": " \uf073 {{ .CurrentDate | date .Format }} ",
-          "properties": {
-            "time_format": "Mon, Jan 02"
-          }
+          "template": " \uf489 {{ .Name }} ",
+          "foreground": "p:text_color3",
+          "background": "#38305a",
+          "type": "shell",
+          "style": "diamond"
         },
         {
-          // display the current time.
-          "type": "time",
-          "style": "diamond",
-          "foreground": "p:text_color3",
-          "background": "p:frame_color2",
-          "leading_diamond": "",
-          "trailing_diamond": "\ue0b4",
-          "template": " \udb80\udc20 {{ .CurrentDate | date .Format }} ",
           "properties": {
+            "always_enabled": true,
+            "cache_duration": "none",
+            "style": "austin",
+            "threshold": 5000
+          },
+          "template": "<#5a5280>\ue0b1</> \uf520 {{ .FormattedMs }} ",
+          "foreground": "p:text_color3",
+          "background": "#38305a",
+          "type": "executiontime",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "Mon, Jan 02"
+          },
+          "powerline_symbol": "\ue0b0",
+          "template": " \uf073 {{ .CurrentDate | date .Format }} ",
+          "foreground": "p:text_color3",
+          "background": "#1C508B",
+          "type": "time",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
             "time_format": "03:04:05 pm"
-          }
+          },
+          "template": "<#4a6a9a>\ue0b1</> \udb80\udc20 {{ .CurrentDate | date .Format }} ",
+          "foreground": "p:text_color3",
+          "background": "#143963",
+          "trailing_diamond": "\ue0d1",
+          "type": "time",
+          "style": "diamond"
         }
       ]
     },
-    // user input prompt ❯
     {
-      // This block is used for user input prompt.
       "type": "prompt",
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "❯",
+          "background": "transparent",
           "type": "text",
           "style": "plain",
           "foreground_templates": [
             "{{if gt .Code 0}}p:error_color{{end}}",
             "{{if eq .Code 0}}p:dark_green{{end}}"
-          ],
-          "background": "transparent",
-          "template": "❯"
+          ]
         }
-      ]
+      ],
+      "newline": true
     }
   ],
-  // transient_prompt is used to display the previous commands used.
-  "transient_prompt": {
-        "foreground_templates": [
-            "{{if gt .Code 0}}p:error_color{{end}}",
-            "{{if eq .Code 0}}p:dark_green{{end}}"
-          ],
-        "background": "transparent",
-        "template": "❯ "
-    },
-  // The secondary prompt is displayed when a command text spans multiple lines.
-    "secondary_prompt": {
-        "background": "transparent",
-        "foreground": "p:orange",
-        "template": "❯❯ "
-    }
+  "version": 3,
+  "final_space": true
 }
