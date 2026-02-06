@@ -135,6 +135,20 @@
           }
         },
         {
+          // display the current date.
+          "type": "time",
+          "style": "diamond",
+          "invert_powerline": true,
+          "foreground": "p:text_color3",
+          "background": "p:frame_color1",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "properties": {
+            "time_format": "Mon, Jan 02"
+          }
+        },
+        {
           // display the current time.
           "type": "time",
           "style": "diamond",
@@ -143,7 +157,10 @@
           "background": "p:frame_color2",
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "\ue0b4",
-          "template": " {{ .CurrentDate | date .Format }} "
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "properties": {
+            "time_format": "03:04:05 pm"
+          }
         }
       ]
     },
