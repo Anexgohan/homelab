@@ -28,51 +28,10 @@
         "frame_color2": "#0069af"
     },
   "blocks": [
-    // right prompt | pwsh| 0ms 09:50:03 
-    {
-      "type": "rprompt",
-      "overflow": "hide",
-      "segments": [
-        {
-          // display the current shell.
-          "type": "shell",
-          "style": "plain",
-          "foreground": "p:text_color2",
-          "background": "transparent",
-          "template": "<p:orange,transparent>|</><p:text_color1> </>{{ .Name }}<p:orange,transparent>|</>" //     \uf489
-        },
-        {
-          // display the execution time of the last command.
-          "type": "executiontime",
-          "style": "powerline",
-          "powerline_symbol": "", //    \ue0b0
-          "foreground": "p:text_color2",
-          "background": "transparent",
-          "template": "<p:text_color1></> {{ .FormattedMs }}", //     \uf520
-          "properties": {
-            "threshold": 5000,
-            "style": "austin",
-            "always_enabled": true
-          }
-        },
-        {
-          // display the current time.
-          "type": "time",
-          "style": "diamond",
-          "invert_powerline": true,
-          "foreground": "p:text_color3",
-          "background": "p:frame_color2",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
-          "template": " {{ .CurrentDate | date .Format }} "
-        }
-      ]
-    },
-    // main prompt left  /root/thing ❯ debian|temp-lxc-docker|u:root ❯
+    // main prompt left   /root/thing ❯ debian|temp-lxc-docker|u:root ❯
     {
       "type": "prompt",
       "alignment": "left",
-      "newline": true,
       "segments": [
         {
           // display the full path of the current directory.
@@ -134,7 +93,7 @@
           //   "{{ if gt .Behind 0 }}#B388FB{{ end }}"
           // ],
           "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>↑</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>↓</>]{{ end }}",
-          // "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
+          // "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
           "properties": {
             "cache_duration": "none",
             "commit_icon": "@",
@@ -147,7 +106,48 @@
         }
       ]
     },
-    // user input prompt ❯ 
+    // right prompt on header line | pwsh| 0ms 09:50:03
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "overflow": "hide",
+      "segments": [
+        {
+          // display the current shell.
+          "type": "shell",
+          "style": "plain",
+          "foreground": "p:text_color2",
+          "background": "transparent",
+          "template": "<p:orange,transparent>|</><p:text_color1> </>{{ .Name }}<p:orange,transparent>|</>" //     \uf489
+        },
+        {
+          // display the execution time of the last command.
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "", //    \ue0b0
+          "foreground": "p:text_color2",
+          "background": "transparent",
+          "template": "<p:text_color1></> {{ .FormattedMs }}", //     \uf520
+          "properties": {
+            "threshold": 5000,
+            "style": "austin",
+            "always_enabled": true
+          }
+        },
+        {
+          // display the current time.
+          "type": "time",
+          "style": "diamond",
+          "invert_powerline": true,
+          "foreground": "p:text_color3",
+          "background": "p:frame_color2",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .CurrentDate | date .Format }} "
+        }
+      ]
+    },
+    // user input prompt ❯
     {
       // This block is used for user input prompt.
       "type": "prompt",
