@@ -40,7 +40,62 @@
   "blocks": [
     {
       "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "leading_diamond": "\ue0b6",
+          "template": " \uf489 {{ .Name }} ",
+          "foreground": "p:text_color3",
+          "background": "#38305a",
+          "type": "shell",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none",
+            "style": "austin",
+            "threshold": 5000
+          },
+          "template": "<#5a5280>\ue0b1</> \uf520 {{ .FormattedMs }} ",
+          "foreground": "p:text_color3",
+          "background": "#38305a",
+          "type": "executiontime",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "Mon, Jan 02"
+          },
+          "powerline_symbol": "\ue0b0",
+          "template": " \uf073 {{ .CurrentDate | date .Format }} ",
+          "foreground": "p:text_color3",
+          "background": "#1C508B",
+          "type": "time",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "03:04:05 pm"
+          },
+          "template": "<#4a6a9a>\ue0b1</> \udb80\udc20 {{ .CurrentDate | date .Format }} ",
+          "foreground": "p:text_color3",
+          "background": "#1C508B",
+          "trailing_diamond": "\ue0d1",
+          "type": "time",
+          "style": "diamond"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
       "alignment": "left",
+      "newline": true,
       "segments": [
         {
           "properties": {
@@ -98,61 +153,6 @@
           "powerline_symbol": "\ue0b0",
           "type": "git",
           "style": "plain"
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "right",
-      "overflow": "break",
-      "segments": [
-        {
-          "properties": {
-            "cache_duration": "none"
-          },
-          "leading_diamond": "\ue0b6",
-          "template": " \uf489 {{ .Name }} ",
-          "foreground": "p:text_color3",
-          "background": "#38305a",
-          "type": "shell",
-          "style": "diamond"
-        },
-        {
-          "properties": {
-            "always_enabled": true,
-            "cache_duration": "none",
-            "style": "austin",
-            "threshold": 5000
-          },
-          "template": "<#5a5280>\ue0b1</> \uf520 {{ .FormattedMs }} ",
-          "foreground": "p:text_color3",
-          "background": "#38305a",
-          "type": "executiontime",
-          "style": "powerline"
-        },
-        {
-          "properties": {
-            "cache_duration": "none",
-            "time_format": "Mon, Jan 02"
-          },
-          "powerline_symbol": "\ue0b0",
-          "template": " \uf073 {{ .CurrentDate | date .Format }} ",
-          "foreground": "p:text_color3",
-          "background": "#1C508B",
-          "type": "time",
-          "style": "powerline"
-        },
-        {
-          "properties": {
-            "cache_duration": "none",
-            "time_format": "03:04:05 pm"
-          },
-          "template": "<#4a6a9a>\ue0b1</> \udb80\udc20 {{ .CurrentDate | date .Format }} ",
-          "foreground": "p:text_color3",
-          "background": "#1C508B",
-          "trailing_diamond": "\ue0d1",
-          "type": "time",
-          "style": "diamond"
         }
       ]
     },
