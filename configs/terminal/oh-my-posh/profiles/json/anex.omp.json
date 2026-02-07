@@ -104,9 +104,6 @@
           "style": "plain"
         },
         {
-          "options": {
-            "cache_duration": "none"
-          },
           "template": " ❯ ",
           "foreground": "p:orange",
           "background": "transparent",
@@ -114,19 +111,13 @@
           "style": "powerline"
         },
         {
-          "options": {
-            "cache_duration": "none"
-          },
-          "template": "{{.OS}}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}",
+          "template": "{{ .Icon }}[{{.OS}}]<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}{{ if .Env.SSH_CONNECTION }}<p:orange,transparent>|</><p:yellow>SSH</>{{ end }}",
           "foreground": "p:text_color1",
           "background": "transparent",
-          "type": "text",
+          "type": "os",
           "style": "plain"
         },
         {
-          "options": {
-            "cache_duration": "none"
-          },
           "template": " ❯",
           "foreground": "p:orange",
           "background": "transparent",
@@ -137,12 +128,9 @@
           "options": {
             "commit_icon": "@",
             "fetch_status": true,
-            "fetch_upstream_icon": true,
-            "untracked_modes": {
-              "/Users/user/Projects/oh-my-posh/": "no"
-            }
+            "fetch_upstream_icon": true
           },
-          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if or (.Working.Changed) (.Staging.Changed) }}*{{ end }}{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>\u2191</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>\u2193</>]{{ end }}",
+          "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{ if gt .StashCount 0 }} \uf487 {{ .StashCount }}{{ end }}{{ if .Staging.Changed }} <p:green>stg: {{ add (add .Staging.Added .Staging.Modified) .Staging.Deleted }}</>{{ end }} <p:yellow>mod: {{ .Working.Modified }}</> <p:red>rem: {{ .Working.Deleted }}</> <p:cyan>untr: {{ .Working.Untracked }}</>{{ if gt .Ahead 0 }} [{{ .Ahead }}<p:git_ahead>\u2191</>]{{ end }}{{ if gt .Behind 0 }} [{{ .Behind }}<p:git_behind>\u2193</>]{{ end }}",
           "foreground": "p:text_color1",
           "powerline_symbol": "\ue0b0",
           "type": "git",
@@ -155,9 +143,6 @@
       "alignment": "left",
       "segments": [
         {
-          "options": {
-            "cache_duration": "none"
-          },
           "template": "❯",
           "background": "transparent",
           "type": "text",
