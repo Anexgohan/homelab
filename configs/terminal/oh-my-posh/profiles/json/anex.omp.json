@@ -11,6 +11,8 @@
     "fg_color": "#ffffff",
     "frame_color1": "#2e9599",
     "frame_color2": "#0069af",
+    "badge_color1": "#38305a",
+    "badge_color2": "#1C508B",
     "git_ahead": "#999900",
     "git_behind": "#a54343",
     "green": "#00ff00",
@@ -43,49 +45,43 @@
       "alignment": "right",
       "segments": [
         {
-          "properties": {
-            "cache_duration": "none"
-          },
           "leading_diamond": "\ue0b6",
           "template": " \uf489 {{ .Name }} ",
           "foreground": "p:text_color3",
-          "background": "#38305a",
+          "background": "p:badge_color1",
           "type": "shell",
           "style": "diamond"
         },
         {
-          "properties": {
+          "options": {
             "always_enabled": true,
-            "cache_duration": "none",
             "style": "austin",
             "threshold": 5000
           },
           "template": "<#5a5280>\ue0b1</> \uf520 {{ .FormattedMs }} ",
           "foreground": "p:text_color3",
-          "background": "#38305a",
+          "background": "p:badge_color1",
           "type": "executiontime",
           "style": "powerline"
         },
         {
-          "properties": {
-            "cache_duration": "none",
+          "options": {
             "time_format": "Mon, Jan 02"
           },
           "powerline_symbol": "\ue0b0",
           "template": " \uf073 {{ .CurrentDate | date .Format }} ",
           "foreground": "p:text_color3",
-          "background": "#1C508B",
+          "background": "p:badge_color2",
           "type": "time",
           "style": "powerline"
         },
         {
-          "properties": {
-            "cache_duration": "none",
+          "options": {
             "time_format": "03:04:05 pm"
           },
           "template": "<#4a6a9a>\ue0b1</> \udb80\udc20 {{ .CurrentDate | date .Format }} ",
           "foreground": "p:text_color3",
-          "background": "#1C508B",
+          "background": "p:badge_color2",
           "trailing_diamond": "\ue0d1",
           "type": "time",
           "style": "diamond"
@@ -98,8 +94,7 @@
       "newline": true,
       "segments": [
         {
-          "properties": {
-            "cache_duration": "none",
+          "options": {
             "style": "full"
           },
           "template": "<p:text_color2>\uf07c {{ .AbsolutePWD }}</>",
@@ -109,7 +104,7 @@
           "style": "plain"
         },
         {
-          "properties": {
+          "options": {
             "cache_duration": "none"
           },
           "template": " ❯ ",
@@ -119,7 +114,7 @@
           "style": "powerline"
         },
         {
-          "properties": {
+          "options": {
             "cache_duration": "none"
           },
           "template": "{{.OS}}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}",
@@ -129,7 +124,7 @@
           "style": "plain"
         },
         {
-          "properties": {
+          "options": {
             "cache_duration": "none"
           },
           "template": " ❯",
@@ -139,8 +134,7 @@
           "style": "powerline"
         },
         {
-          "properties": {
-            "cache_duration": "none",
+          "options": {
             "commit_icon": "@",
             "fetch_status": true,
             "fetch_upstream_icon": true,
@@ -161,7 +155,7 @@
       "alignment": "left",
       "segments": [
         {
-          "properties": {
+          "options": {
             "cache_duration": "none"
           },
           "template": "❯",
