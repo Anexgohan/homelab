@@ -4,7 +4,8 @@
       "WebSearch",
       "Bash(gh issue view:*)",
       "mcp__ide__getDiagnostics",
-      "Bash(oh-my-posh --version:*)"
+      "Bash(oh-my-posh --version:*)",
+      "WebFetch(domain:ohmyposh.dev)"
     ]
   }
 }

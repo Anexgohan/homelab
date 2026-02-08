@@ -111,7 +111,7 @@
           "style": "powerline"
         },
         {
-          "template": "{{ .Icon }}[{{.OS}}]<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}{{ if .Env.SSH_CONNECTION }}<p:orange,transparent>|</><p:yellow>SSH</>{{ end }}",
+          "template": "{{ if eq .OS \"windows\" }}<#0078D4>{{ .Icon }}[{{.OS}}]</>{{ else if eq .OS \"debian\" }}<#A80030>{{ .Icon }}[{{.OS}}]</>{{ else if eq .OS \"ubuntu\" }}<#E95420>{{ .Icon }}[{{.OS}}]</>{{ else if eq .OS \"arch\" }}<#1793D1>{{ .Icon }}[{{.OS}}]</>{{ else if eq .OS \"fedora\" }}<#51A2DA>{{ .Icon }}[{{.OS}}]</>{{ else if eq .OS \"centos\" }}<#932279>{{ .Icon }}[{{.OS}}]</>{{ else if eq .OS \"alpine\" }}<#0D597F>{{ .Icon }}[{{.OS}}]</>{{ else }}{{ .Icon }}[{{.OS}}]{{ end }}<p:orange,transparent>|</>{{.HostName}}<p:orange,transparent>|</>u:{{.UserName}}{{ if .Env.SSH_CONNECTION }}<p:orange,transparent>|</><p:yellow>SSH</>{{ end }}",
           "foreground": "p:text_color1",
           "background": "transparent",
           "type": "os",
