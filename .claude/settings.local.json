@@ -5,7 +5,11 @@
       "Bash(gh issue view:*)",
       "mcp__ide__getDiagnostics",
       "Bash(oh-my-posh --version:*)",
-      "WebFetch(domain:ohmyposh.dev)"
+      "WebFetch(domain:ohmyposh.dev)",
+      "Bash(git -C \"E:\\\\git\\\\repositories\\\\homelab\" log --oneline -20)",
+      "Bash(git -C \"E:\\\\git\\\\repositories\\\\homelab\" remote -v)",
+      "mcp__plugin_github_github__search_code",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }
