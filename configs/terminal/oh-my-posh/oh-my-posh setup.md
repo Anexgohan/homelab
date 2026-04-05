@@ -247,7 +247,7 @@ exec bash
 export PATH=$PATH:/root/.local/bin
 ```
 
-### oh-my-posh install.sh
+### oh-my-posh install.sh as a `root` user:
 ```bash
 mkdir -p '/root/anex/oh-my-posh/' && \
 cd '/root/anex/oh-my-posh/' && \
@@ -259,6 +259,24 @@ wget -N -P '/root/anex/oh-my-posh/' 'https://raw.githubusercontent.com/Anexgohan
 if ! grep -Fxq 'eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' /root/.bashrc ;
 then \
     echo -e '\n\n# oh-my-posh''\nexport PATH=$PATH:/root/.local/bin''\neval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json)"' | tee -a /root/.bashrc
+fi && \
+oh-my-posh --version && \
+exec bash
+```
+
+### as a `user` not root:
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+```bash
+mkdir -p "$HOME/.local/bin" && \
+mkdir -p "$HOME/.config/oh-my-posh" && \
+export PATH="$HOME/.local/bin:$PATH" && \
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d "$HOME/.local/bin" && \
+wget -O "$HOME/.config/oh-my-posh/anex.omp.json" \
+https://raw.githubusercontent.com/Anexgohan/homelab/main/configs/terminal/oh-my-posh/profiles/json/anex.omp.json && \
+if ! grep -Fxq 'eval "$(oh-my-posh init bash --config $HOME/.config/oh-my-posh/anex.omp.json)"' "$HOME/.bashrc"; then \
+    echo -e '\n# oh-my-posh\nexport PATH="$HOME/.local/bin:$PATH"\neval "$(oh-my-posh init bash --config $HOME/.config/oh-my-posh/anex.omp.json)"' >> "$HOME/.bashrc"; \
 fi && \
 oh-my-posh --version && \
 exec bash

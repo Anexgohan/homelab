@@ -10,7 +10,31 @@
       "Bash(git -C \"E:\\\\git\\\\repositories\\\\homelab\" remote -v)",
       "mcp__plugin_github_github__search_code",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:docs.pi-hole.net)"
+      "WebFetch(domain:docs.pi-hole.net)",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"ls -la /root/anex/docker/opt/stacks/backups/\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"cat /root/anex/docker/opt/stacks/backups/compose.yml\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"cat /root/anex/docker/opt/stacks/backups/.env\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"docker ps -a --filter name=zerobyte --format '{{.Names}} {{.Status}}'\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"docker logs zerobyte --tail 100 2>&1\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"dmesg | grep -i cifs | tail -30\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"timeout 3 bash -c 'echo > /dev/tcp/192.168.100.101/445' 2>&1 && echo 'Port 445 OPEN' || echo 'Port 445 CLOSED/UNREACHABLE'\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"docker exec zerobyte cat /etc/os-release 2>/dev/null | head -5\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"docker logs zerobyte --tail 60 2>&1\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.185 \"docker logs zerobyte --tail 30 2>&1\")",
+      "WebFetch(domain:deepwiki.com)",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.237 \"fzf --version\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.237 \"grep 'FZF_CTRL_R_OPTS' /root/.bashrc\")",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.199 'cat /var/lib/vz/snippets/hookscript_anex-gpu.pl')",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.199 'cat /etc/pve/qemu-server/269.conf')",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.199 'journalctl --since \"10 minutes ago\" | grep -i \"GUEST.HOOK\\\\|unbinding\\\\|binding\\\\|WARNING\\\\|rebind\\\\|post-stop\\\\|OK:\"')",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.199 'dmesg | grep -i -E \"0c:00\\\\.[23]\" | tail -20')",
+      "Bash(/c/msys64/usr/bin/ssh.exe root@192.168.100.199 'journalctl --since \"5 minutes ago\" | grep -i \"GUEST.HOOK\\\\|unbinding\\\\|binding\\\\|WARNING\\\\|OK:\\\\|rebind complete\"')",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.diagrams.net)",
+      "WebFetch(domain:www.drawio.com)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:j2r2b.github.io)",
+      "WebFetch(domain:gist.github.com)"
     ]
   }
 }
