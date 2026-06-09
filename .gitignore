@@ -32,6 +32,7 @@ Thumbs.db
 
 # Local configuration files and documentation
 .claude/
+.claude/**
 CLAUDE.md
 AGENTS.md
 /README.md
